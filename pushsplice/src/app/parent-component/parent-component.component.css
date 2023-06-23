@@ -1,0 +1,7 @@
+.parentbody{padding: 20px;
+    background-color: #f7f6f6;
+    border-radius: 10px;
+    box-shadow: -1px -1px 8px 2px inset;}
+    h3{color:#025c04;}
+    tr{border:1px solid #333; border-radius:5px;}
+    tr td{padding: 10px;}

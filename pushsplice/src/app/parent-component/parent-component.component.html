@@ -1,0 +1,55 @@
+<div class="container parentbody">
+    <div class="row">
+        <div class="col-md-12">
+          <h3>Parent</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            
+            <div class="card-body">
+              <h5 class="card-title">User</h5>
+              <table>
+                <tr *ngFor = "let usering of useres">
+                  <td>{{usering}}</td>
+                  <td>:Remove</td>
+                </tr>               
+              </table>
+               </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+                    <div class="card-body">
+              <h5 class="card-title">Admin</h5>
+              <table>
+                <tr>
+                  <tr *ngFor = "let adming of admines">
+                    <td>{{adming}}</td>
+                    <td>:Remove</td>
+                  </tr>
+                
+              </table>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <h3>Child</h3>
+          <hr/>
+          
+        </div>
+      </div>
+
+
+<div class="row">
+  <div class="col-md-6">
+<app-child-component [boxColor]="'red'" [placeholders] = "'UserText'" (Inputdata)="inputEmitData($event)"></app-child-component>
+</div>
+<div class="col-md-6">
+<app-child-component [boxColor]="'green'" [placeholders] = "'AdminText'" (Inputdata)="inpAdminEMit($event)"></app-child-component>
+</div>
+</div>
+</div>

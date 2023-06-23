@@ -1,0 +1,23 @@
+
+  
+    <!--child-->
+   
+    <!--user-->
+    
+      
+        <div class="card" [ngClass] = "{redbox:boxColor=='red',greenbox:boxColor=='green'}">
+          
+          <div class="card-body">
+            <h5 class="card-title">
+              <input type="text" #inputUser placeholder="{{placeholders}}"/></h5>
+          <button class="btn btn-success" (click)="usertextBTN(inputUser)">CREATE</button> 
+          <p *ngIf="TovaluUser">Total Users:{{TovaluUser}}</p>
+            
+          </div>
+        </div>
+      
+      <!--admin-->
+     
+    
+    
+  
