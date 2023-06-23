@@ -1,0 +1,65 @@
+ <div class="container">
+    <div class="row">
+        <h2>Contact Us</h2>
+        <form (ngSubmit)="onsubmited(myForm)" #myForm="ngForm">
+         <div ngModelGroup="userDetail" #userDetail="ngModelGroup">
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">UserName*</label>
+                    <input type="text" class="form-control"
+                    name="usernames" required [(ngModel)]="username.text" 
+                    id="exampleFormControlInput1" placeholder="Username">
+                <p>{{username.text}}</p>
+                </div>
+                  
+            </div>
+            <button (click)="setusername()">ResetValue</button>
+            <div class="form-group">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email address*</label>
+                    <input type="email" 
+                    name="email" ngModel required email 
+                    class="form-control" id="exampleFormControlInput1"
+                     #email="ngModel" placeholder="Email address"/>
+<small class="text-danger" *ngIf="!email.valid && email.touched">Please enter the valid email</small>
+                  </div>
+                  
+            </div>
+<span class="text-danger" *ngIf="!userDetail.valid && userDetail.touched">Please enter valid details</span>
+        </div>
+            <div class="form-group">
+                <div class="mb-3">
+                    <label class="form-label">Select course*</label>
+                    <select class="form-control" required [ngModel]="defaultvalue"
+                     name="selected">
+                        <option>HTML</option>
+                        <option>CSS</option>
+                        <option>JAVASCRIPT</option>
+                        <option>JQUERY</option>
+                    </select>
+                </div>
+            
+        </div>
+       
+            <div class="form-check">
+                <input class="form-check-input"
+                 type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Checked checkbox
+                </label>
+              </div>
+              <div class="form-check" *ngFor="let genderes of gendered">
+                <input class="form-check-input" type="radio" name="gender" [ngModel]="defaultedvalue"
+                 id="{{genderes.id}}" value="{{genderes.value}}">
+                <label class="form-check-label" for="{{genderes.id}}">
+                  {{genderes.value}}
+                </label>
+              </div>
+              
+              <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+           </div>
+ </div>
+ 
+ 
+ 
