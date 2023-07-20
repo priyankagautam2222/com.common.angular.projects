@@ -1,0 +1,86 @@
+<div class="container border border-success p-2 border-opacity-10 
+shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="padding:20px; margin: 20px;">
+    <div class="row">
+       
+        <div class="col-md-12">
+            <div class="justify-content-center">
+            <!---<form (ngSubmit)="onsubmmited(myFormTemplate)" #myFormTemplate="ngForm">-->
+              <form (ngSubmit)="onsubmmited(myFormTemplate)" #myFormTemplate="ngForm">
+                <!--ngModelGroup iska use say hum form ko bhi validate ker sakte hai useka liya local 
+                  reference ko add kerna padta hai ex:-userDetail is local <div ngModelGroup="userDetail" #userDetail="ngModelGroup">-->
+            <div ngModelGroup="userDetail" #userDetail="ngModelGroup">
+                <div class="form-group">
+                  <label for="Username" class="form-label">Username*</label>
+                  <input type="text" class="form-control" [(ngModel)]="usermodel" 
+                  required id="username" 
+                  placeholder="enter username" name="username" ngModel/>
+                  <small *ngIf="usermodel">Please enter username:-{{usermodel}}</small>
+                  <!--([ngModel]) username mei typeing vali value two way databinding kaa thought show karaney kaa liya-->
+                  <!--required   bahot jaruri hai sub field kaa liya and ngModel bhi-->
+                  </div>
+                  <button (click)="onsetvalue()">SetValue</button><!--set value button how can reset value in input select and gender value-->
+                <div class="form-group">
+                  <label for="email" class="form-label">Email*</label>
+                  <input type="email" #email="ngModel" class="form-control" required email id="email" 
+                  placeholder="email" name="email" ngModel/>
+                  <!--#email="ngModel" small tag ki value mei errer show karaney kaa liya-->
+                <small *ngIf="!email.valid && email.touched" class="text-danger">Please enter valid email</small>
+                <!--*ngIf="!email.valid && email.touched" error show karaney kaa liya-->
+                </div>
+                
+              </div>
+              <small class="text-danger" *ngIf="!userDetail.valid && userDetail.touched">Please enter valid details</small>
+                
+                <div class="form-group">
+                  <label  for="course">Select course*</label>
+                  <select class="form-control" required id="course" name="select" [ngModel]="defaultCourse">
+                    <!--[ngModel]="defaultCourse" this is use default value show kerney kaa liya-->
+                    <option value="Angular">Angular</option>
+                    <option value="html">html</option>
+                    <option value="javascript">javascript</option>
+                    <option value="node.js">node.js</option>
+                    
+                  </select>
+                </div>
+                <div class="form-group">
+                <div class="form-check" *ngFor="let genderes of genders">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault"
+                   id="{{genderes.id}}" value="{{genderes.value}}" [ngModel]="defaultGender" checked>
+                  <label class="form-check-label" for="{{genderes.id}}">
+                    {{genderes.value}}
+                  </label>
+                </div>
+              </div>
+                <button type="submit" class="btn btn-success">Submit</button>
+              </form>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+<!--form model-->
+<form *ngIf="formselectvalue">
+  <div class="form-group">
+    <div>
+      <label>Username:-</label>
+      <span><strong>{{uservalue}}</strong></span>
+    </div>
+    <div>
+      <label>Email:-</label>
+      <span><strong>{{emailvalue}}</strong></span>
+    </div>
+    <div>
+      <label>course:-</label>
+      <span><strong>{{coursevalue}}</strong></span>
+    </div>
+    <div>
+        <label>Gender:-</label>
+        <span><strong>{{gendervalue}}</strong></span>
+    </div>
+  </div>
+</form>
+
+
+
+
